@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ModifiersView: View {
   @State var text = "Hello, World!"
-  @State var showAlert = false
   
   var body: some View {
     Text(text)

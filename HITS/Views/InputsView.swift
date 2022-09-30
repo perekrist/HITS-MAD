@@ -16,6 +16,7 @@ struct InputsView: View {
   
   var body: some View {
     VStack(spacing: 20) {
+      // MARK: - Button
       HStack {
         Button {
           count += 1
@@ -26,23 +27,31 @@ struct InputsView: View {
         Text("Count: \(count)")
           .padding()
       }
+      
+      // MARK: - TextField
       TextField("This is a TextField", text: $text)
         .padding()
+      
+      // MARK: - Toggle
       Toggle(isOn: $isToggle) {
         Text("Toggle")
           .padding()
       }
       ToggleView(isToggle: $isToggle)
+      
+      // MARK: - Slider
       HStack {
         Slider(value: $sliderValue, in: 0...10)
           .padding()
         Text(String(format: "%.2f", sliderValue))
           .padding()
       }
+      
+      // MARK: - DatePicker
       DatePicker("DatePicker", selection: $date)
         .padding()
     }.padding()
-      .foregroundColor(.red)
+    
   }
 }
 

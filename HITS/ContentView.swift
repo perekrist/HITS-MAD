@@ -11,19 +11,33 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       Form {
-        NavigationLink(destination: FormsView()) {
-          Text("Формы")
+        Section(header: Text("Компоненты")) {
+          NavigationLink {
+            FormsView()
+              .frame(maxHeight: .infinity, alignment: .top)
+          } label: {
+            Text("Формы")
+          }
+          NavigationLink {
+            CompositionsView()
+              .frame(maxHeight: .infinity, alignment: .top)
+          } label: {
+            Text("Композиция")
+          }
+          NavigationLink {
+            InputsView()
+              .frame(maxHeight: .infinity, alignment: .top)
+          } label: {
+            Text("Компоненты с вводом/выводом")
+          }
         }
-        NavigationLink(destination: CompositionsView()) {
-          Text("Композиции")
+        NavigationLink(destination: ListView()) {
+          Text("Таблица")
         }
-        NavigationLink(destination: InputsView()) {
-          Text("Компоненты с вводом/выводом")
+        NavigationLink(destination: TabBarView()) {
+          Text("Табы")
         }
-        NavigationLink(destination: ModifiersView()) {
-          Text("Модификаторы")
-        }
-      }
+      }.navigationTitle("SwiftUI")
     }
   }
 }
@@ -31,5 +45,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+      .previewDevice(PreviewDevice(rawValue: "iPhone 13"))
+      .previewDisplayName("iPhone 13")
+    
+    ContentView()
+      .previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
+      .previewDisplayName("iPhone 8 Plus")
   }
 }

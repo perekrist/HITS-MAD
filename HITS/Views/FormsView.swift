@@ -36,6 +36,9 @@ struct FormsView: View {
         Text("Capsule()")
       }
       VStack {
+        ///
+        /// Системные картинки беруться из SF Symbols
+        ///
         Image(systemName: "person.fill")
           .resizable()
           .frame(width: 50, height: 50)
@@ -55,7 +58,7 @@ struct FormsView: View {
 struct FormsView_Previews: PreviewProvider {
   static var previews: some View {
     FormsView()
-//      .previewLayout(.sizeThatFits)
+      .previewLayout(.sizeThatFits)
   }
 }
 

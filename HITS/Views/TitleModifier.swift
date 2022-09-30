@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct TitleModifierView: View {
-  var body: some View {
-    VStack {
-      Text("Hello, world!")
-        .modifier(TitleModifier())
-      
-      Text("Hello, world!")
-        .titleStyle()
-    }.padding()
-  }
-}
-
 struct TitleModifier: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -36,9 +24,15 @@ extension View {
   }
 }
 
-struct TitleModifierView_Previews: PreviewProvider {
+struct TitleModifier_Previews: PreviewProvider {
   static var previews: some View {
-    TitleModifierView()
+    VStack {
+      Text("Hello, world!")
+        .modifier(TitleModifier())
+      
+      Text("Hello, world!")
+        .titleStyle()
+    }.padding()
       .previewLayout(.sizeThatFits)
   }
 }
